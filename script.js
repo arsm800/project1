@@ -3,6 +3,8 @@
 //var player1 = prompt("Welcome to concentration.  Enter your name, player 1.");
 //var player2 = prompt("Welcome to concentration.  Enter your name, player 2.");
 var boardRandom = [];
+var selectButton;
+
 
 //Populate board.
 
@@ -24,11 +26,15 @@ var setBoard = function() {
     temporaryValue = boardDefault[currentIndex];
     boardDefault[currentIndex] = boardDefault[randomIndex];
     boardDefault[randomIndex] = temporaryValue;
+    boardRandom = boardDefault;
   }
-  return boardDefault;
+  return boardRandom;
 };
+                                      //This only scrambles the order of arrays, not indexes in each array.
 
-//Set up tile/button game board.
+//Apply game board values to css elements on web page.
+
+
 
 //Get players.
 
@@ -37,9 +43,25 @@ var getPlayers = function() {
   player2();
 };
 
+
+//Set query selectors to match clicking with buttons.
+
+var changeButtonText = function() {
+  this.textContent = "adsfasdf";
+};
+
+
+var buttons = document.querySelectorAll(".btn-primary");
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", changeButtonText);
+  }
+
+
+//revealLetter11.addEventListener("click", changeButtonText);
+
 //Receive player input.
 
-    //Set query selectors to match clicking with buttons.  When a button is clicked, the letter will appear.  Clicking on another button will make the other letter appear.  If they match, the buttons disappear.  If they do not match, letters remain (hidden) and player 2 begins turn.
+     //When a button is clicked, the letter will appear.  Clicking on another button will make the other letter appear.  If they match, the buttons disappear.  If they do not match, letters remain (hidden) and player 2 begins turn.
 
     //Note: I am still undecided on buttons or colored tiles to indicate letter items.
 
@@ -55,4 +77,4 @@ var getPlayers = function() {
 
 
 setBoard(boardDefault);
-console.log(boardDefault);
+console.log(boardRandom);
