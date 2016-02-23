@@ -44,26 +44,32 @@ var getPlayers = function() {
 };
 
 
-//Set query selectors to match clicking with buttons.
-
-var changeButtonText = function() {
-  this.textContent = "adsfasdf";
+//Add div elements to HTML webpage based on indexes in boardRandom array
+var newTile = function() {
+  for (var i = 0; i < boardRandom.length; i++) {
+    for (var j = 0; j < boardRandom[i].length; j++) {
+      var newDiv = document.createElement("div");
+      newDiv.setAttribute("class", "square");
+      document.body.appendChild(newDiv);
+    }
+  }
+};
+//I can see the divs in the element window, but the borders (from css) do not appear.
+var divSquare = document.querySelectorAll(".square");
+//Reveal text when tile is clicked
+var setText = function() {
+    var changeTileText = function() {
+    this.textContent = boardRandom;
+  };
+  divSquare.addEventListener("click", changeTileText);
 };
 
 
-var buttons = document.querySelectorAll(".btn-primary");
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", changeButtonText);
-  }
-
-
-//revealLetter11.addEventListener("click", changeButtonText);
 
 //Receive player input.
 
      //When a button is clicked, the letter will appear.  Clicking on another button will make the other letter appear.  If they match, the buttons disappear.  If they do not match, letters remain (hidden) and player 2 begins turn.
 
-    //Note: I am still undecided on buttons or colored tiles to indicate letter items.
 
 //Conditionals
 
@@ -78,3 +84,4 @@ var buttons = document.querySelectorAll(".btn-primary");
 
 setBoard(boardDefault);
 console.log(boardRandom);
+newTile();

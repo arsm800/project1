@@ -1,0 +1,12 @@
+.name {
+
+}
+.players {
+  font-size: 20px;
+}
+.square {
+  width: 50px;
+  height: 50px;
+  border: 5px solid black;
+  margin: 0;
+}
