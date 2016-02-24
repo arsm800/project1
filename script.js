@@ -6,6 +6,8 @@ var boardRandom = [];
 var selectButton;
 var player1Score = 0;
 var player2Score = 0;
+var divSquares = document.querySelectorAll(".square");
+
 
 //Populate board.
 
@@ -31,7 +33,8 @@ var setBoard = function() {
   }
   return boardRandom;
 };
-                                      //This only scrambles the order of arrays, not indexes in each array.
+setBoard(boardDefault);
+console.log(boardRandom);
 
 //Apply game board values to css elements on web page.
 
@@ -50,19 +53,22 @@ var newTile = function() {
       var newDiv = document.createElement("div");
       newDiv.setAttribute("class", "square");
       document.body.appendChild(newDiv);
+      newDiv.innerHTML = boardRandom[i];
   }
 };
+newTile();
 
-var divSquare = document.querySelectorAll(".square");
-//Reveal text when tile is clicked
+
 var setText = function() {
-  for (var i = 0; i < boardRandom.length; i++) {
-      boardRandom[i].innerHTML = divSquare[i];
-  }
+    this.innerHTML = boardRandom;
 };
-
-var click = function() {divSquare.addEventListener("click", setText);
-};  //Chrome says this is not a function; corrects when I write "var = ..."
+//   for (var i = 0; i < boardRandom.length; i++) {
+//     document.getElementsByClass(".square").innerHTML = "ASM";
+//     //boardRandom[i].innerHTML = divSquares[i];
+//   }
+for (var i = 0; i < divSquares.length; i++) {
+  divSquares[i].addEventListener("click", setText);
+}
 
 
 
@@ -113,8 +119,3 @@ var clickTile = function() {
     //When all tiles are removed, indicate a winner
 
     //Create some sort of option to start the game again
-
-
-setBoard(boardDefault);
-console.log(boardRandom);
-newTile();
