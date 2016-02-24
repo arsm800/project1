@@ -6,7 +6,8 @@ var boardRandom = [];
 var selectButton;
 var player1Score = 0;
 var player2Score = 0;
-var divSquares = document.querySelectorAll(".square");
+
+
 
 
 //Populate board.
@@ -48,29 +49,34 @@ var getPlayers = function() {
 
 
 //Add div elements to HTML webpage based on indexes in boardRandom array
+
 var newTile = function() {
   for (var i = 0; i < boardRandom.length; i++) {
       var newDiv = document.createElement("div");
       newDiv.setAttribute("class", "square");
       document.body.appendChild(newDiv);
-      newDiv.innerHTML = boardRandom[i];
+      newDiv.innerHTML = boardRandom[i];  //Just like setting the attributes, you are assigning an index from boardRandom to its innerHTML.
   }
 };
 newTile();
 
+var divSquares = document.querySelectorAll(".square");
+  //$("#cool").text("one").css("color , black");
 
-var setText = function() {
-    this.innerHTML = boardRandom;
+var revealText = function(e) {
+  this.style.color = "green";
+  
+  }
+  //document.body.style.backgroundColor = "red";
+  //for (var i = 0; i < divSquares.length; i++) {
+  //document.getElementsByClassName(".square").style.color = "red";
 };
-//   for (var i = 0; i < boardRandom.length; i++) {
-//     document.getElementsByClass(".square").innerHTML = "ASM";
-//     //boardRandom[i].innerHTML = divSquares[i];
-//   }
+
+
 for (var i = 0; i < divSquares.length; i++) {
-  divSquares[i].addEventListener("click", setText);
+divSquares[i].addEventListener("click", revealText);
+  //$("square").css("color" , "blue");
 }
-
-
 
 //Receive player input.  Create classes for specifc events.
 
