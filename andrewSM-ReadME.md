@@ -15,13 +15,13 @@ Approach Taken:
 
   Pseudocode - At the beginning, I attempted to pseudocode my entire project into the script.js file.  I wrote the javascript around the pseudocode "outline".  While I followed this notation at first, its effectiveness dwindled as I got deeper into coding my program. Later on, it became mildly confusing because I would multiple iterations of pseudocode interspersed with bits of code that I did not plan to use.  
 
-  Code structures - This program required conditional statements, event listeners, HTML element selectors and appending methods, as well as arrays.  This program could have also been coded as an object, but I have not yet reached to skill level to do so.
+  Code structures - This program required conditional statements, event listeners, HTML element selectors and appending methods, as well as arrays.  More specifically, I centered the tile class changes based on user clicks around a series of conditional statements.  This program could have also been coded as an object, but I have not yet reached to skill level to do so.
 
   Trial and Error - Like much of coding, experimentation is key.  I constantly tested, parts of code in simpler contexts to verify the integrity of its structure.  For example, I first aimed to attach an event listener to a single element before I tried to get it synced up to an entire array of elements with the same class ID.
 
 Installation Instructions:
 
-I'm not sure what this entails.  However, this game runs in a Chrome web browser.
+I'm not sure what this entails.  However, by following a url link, this game runs in a Chrome web browser.
 
 Unsolved Problems:
 
