@@ -21,13 +21,15 @@ Approach Taken:
 
 Installation Instructions:
 
-
+I'm not sure what this entails.  However, this game runs in a Chrome web browser.
 
 Unsolved Problems:
 
   Scoreboard - I aimed to incorporate a feature where each time a match is made, the "pieces" vanish and the corresponding player's score is increased by one.  However, this is contingent on keeping track of a player's turn.  
 
   Game Size Flexibility - It would have been nice to have the game customizable in a way that the players could decide how many matches are required to win and the elements that are being matched (ie. words, photos, etc.).  In order for this to happen, I would have had to code a process where the user is prompted to manually fill the array that holds all the elements to be matched.
+
+  Standardize tile grid shape - I think flexbox could probably solve this issue.  As it stands, when I increase or decrease the size of the page, the tile grade changes shape.
 
 Other Items of Note:
 

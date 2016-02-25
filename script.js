@@ -6,7 +6,7 @@ var boardRandom = [];
 var selectButton;
 var player1Score = 0;
 var player2Score = 0;
-
+var playerTurn = [];
 
 
 
@@ -60,23 +60,102 @@ var newTile = function() {
 };
 newTile();
 
+var match = function() {  //while loop?
+  if (playerTurn.length === 2 && playerTurn[0] === playerTurn[1]) {
+    document.body.style.backgroundColor = "purple";
+    //empty array
+    playerTurn.classList.remove("square");
+    //change color
+  }
+  else if (playerTurn.length === 2 && playerTurn[0] !== playerTurn[1]) {
+    document.body.style.backgroundColor = "red";
+    //empty array
+    playerTurn.classList.remove("square");
+    //change to original color
+  }
+};
+
 var divSquares = document.querySelectorAll(".square");
   //$("#cool").text("one").css("color , black");
 
-var revealText = function(e) {
-  this.style.color = "green";
-  
-  }
-  //document.body.style.backgroundColor = "red";
-  //for (var i = 0; i < divSquares.length; i++) {
-  //document.getElementsByClassName(".square").style.color = "red";
-};
+  var revealText = function() {
+    if (playerTurn.length < 2) {
+      playerTurn.push(this.innerHTML);  //Should this be in a for loop?
+      this.classList.add("click");
+    } else {
+      var clickedTiles = document.getElementsByClassName("click");
+      //match = function() {
+        if (playerTurn[0] === playerTurn[1]) {
+          // mark as "match"
+          for(var i=0; i < clickedTiles.length; i++){
+            clickedTiles[i].classList.add("match");
+          }
+        }
+
+        // reset of turn
+          // clear PlayerTurn array
+          // remove "click" classes
+        playerTurn = [];
+        while(clickedTiles.length > 0){
+          clickedTiles[0].classList.remove("click");
+        }
+
+        // var clickedTilesCount = clickedTiles.length // because it changes mid-loop
+        // for (var i = 0; i < clickedTilesCount; i++) {
+        //   console.log("clickedTiles", i, clickedTiles)
+        //   console.log("clickedTile:", clickedTiles[i])
+        //   clickedTiles[0].classList.remove("click");
+        // }
+      //};
+      //match();
+    }
+  };
+  // while (playerTurn.length < 2) {
+  //
+  //   this.classList.add("click");
+  // this.style.color = "black";
+  // this.style.backgroundColor = "lime";
+  //console.log(document.body.childNodes);
+  //document.body.firstChild.style.color = "blue";    The best way I can navigate to a particular element is to getElementById("").style.whatever.
+  // console.log(playerTurn);
+  // console.log(this);
+  // if (playerTurn[0] === playerTurn[1]) {
+  //       this.classList.add("match");
+  //       divSquares[0].removeEventListener("click", revealText);
+  //       divSquares[1].removeEventListener("click", revealText);
+  //       console.log("if");
+  //     }
+  // else if (playerTurn[0] !== playerTurn[1]) {
+  //       this.classList.add("turn");
+  //       console.log("else");
+  //     }
+  // };
 
 
 for (var i = 0; i < divSquares.length; i++) {
 divSquares[i].addEventListener("click", revealText);
   //$("square").css("color" , "blue");
 }
+
+//var returnText = function() {
+//  this.style.color = "cyan";
+//  this.style.backgroundColor = "cyan";
+//};
+
+//for (var i = 0; i < divSquares.length; i++) {
+//divSquares[i].addEventListener("click", returnText);
+//}
+
+//    if (playerTurn[0] === playerTurn[1]) {
+//      document.body.style.backgroundColor = "purple";    //"This" appears undefined
+//    }
+//    else {
+//      document.body.style.backgroundColor = "cyan";
+
+//    }
+//  }
+//};
+match();
 
 //Receive player input.  Create classes for specifc events.
 
