@@ -7,6 +7,7 @@
 .players {
   font-size: 20px;
 }
+/* AM: Look into using the `font:` property to consolidate different font-related properties. */
 .square {
   color: cyan;
   font-size: 20px;
@@ -19,6 +20,10 @@
   text-align: center;
   font-weight: bold;
 }
+/*
+  AM: Can already start to notice properties that have the same value for different selectors.
+  AM: Think about using shared selectors (e.g., .square, .click {...}) to keep your code concise.
+*/
 .click {
   color: black;
   font-size: 20px;

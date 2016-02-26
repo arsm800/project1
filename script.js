@@ -14,6 +14,8 @@ var playerTurn = [];
 
     //Create array of pairs of letters a-z. There should be 26 letters total in a 8x8 grid plus the remaining 6 characters.  Everything is double.  Note: it will probably be easier to start with just several different letters first.  Originally I started with an array of array, but I think it will be easier to use a single, long array.
 
+// AM: You end up revealing all of the answers in your HTML once the application is loaded (i.e., I can highlight all the tiles with my cursor and see the answers).
+// AM: Can you think of a way to load the application so that the answers (stored in the index below) only appear in your HTML when a tile is clicked?
 var boardDefault = ["a", "a", "b", "b", "c", "c", "d", "d", "e", "e", "f", "f", "g", "g", "h", "h", "i", "i", "j", "j", "k", "k", "l", "l", "m", "m", "n", "n", "o", "o", "p", "p", "q", "q", "r", "r", "s", "s", "t", "t", "u", "u", "v", "v", "w", "w", "x", "x", "y", "y", "z", "z", "aa", "aa", "bb", "bb", "cc", "cc", "dd", "dd", "ee", "ee", "ff", "ff"];
 
 //Shuffle board values.
@@ -23,6 +25,7 @@ var boardDefault = ["a", "a", "b", "b", "c", "c", "d", "d", "e", "e", "f", "f", 
     //Given this is an 8x8 array, we want this function to randomly select the coordinates of the outer array, then the inner array, then push that value to a new array of the same dimensions.  Fisher-Yates randomization function.
 
 var setBoard = function() {
+  // AM: What are you trying to do on the below line - store multiple values into a variable? If so, you would need to do this using an array or object.
   var currentIndex = boardDefault.length, temporaryValue, randomIndex;
   while (0 !== currentIndex) {
     randomIndex = Math.floor((Math.random() * currentIndex));
@@ -61,12 +64,16 @@ var newTile = function() {
 newTile();
 
 var match = function() {  //while loop?
+  // AM: As it stands, your application allows the user to click the same square twice and get a match. How could you modify the below conditional to fix this? It might require creating an additional variable or two.
   if (playerTurn.length === 2 && playerTurn[0] === playerTurn[1]) {
     document.body.style.backgroundColor = "purple";
     //empty array
     playerTurn.classList.remove("square");
     //change color
   }
+  // AM: Also see a refactoring opportunity here. Your code in these if-else clauses look virtually the same, with the exception of a couple values.
+  // AM: Could you use a function to encapsulate the code that appears both above and below?
+  // AM: Think about where else you could do this in your application.
   else if (playerTurn.length === 2 && playerTurn[0] !== playerTurn[1]) {
     document.body.style.backgroundColor = "red";
     //empty array
@@ -100,6 +107,10 @@ var divSquares = document.querySelectorAll(".square");
           clickedTiles[0].classList.remove("click");
         }
 
+        // AM: You have a lot of commented-out code in this project. In the future, I would suggest you either...
+        //         (a) Delete it.
+        //         (b) Save it in a branch separate from master or gh-pages.
+        //
         // var clickedTilesCount = clickedTiles.length // because it changes mid-loop
         // for (var i = 0; i < clickedTilesCount; i++) {
         //   console.log("clickedTiles", i, clickedTiles)
