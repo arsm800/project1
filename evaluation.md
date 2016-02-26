@@ -12,7 +12,7 @@ See below for my project evaluation. Feel free to hit me up via Slack or GitHub 
 
 > Did you deliver a project that met all the technical requirements? Given what the class has covered so far, did you build something that was reasonably complex?  
 
-**Meets Expectations:** Good job here - you checked of all the bullet points under `Technical Requirements`. There are a number of opportunities for refactoring (e.g., consolidating repeated code into functions), so definitely keep an eye out for those next time you give this project a look. I also left some notes about lingering bugs (e.g., you can click the same tile twice to get a "match") in my inline comments.
+**Meets Expectations:** Good job here - you checked of all the bullet points under `Technical Requirements`. There are a number of opportunities for refactoring (e.g., consolidating repeated code into functions), so definitely keep an eye out for those next time you give this project a look. I also left some notes about lingering bugs (e.g., you can click the same tile twice to get a "match") in my [inline comments](https://github.com/arsm800/project1/pull/1/files).
 
 ## Code Quality
 
@@ -22,4 +22,4 @@ See below for my project evaluation. Feel free to hit me up via Slack or GitHub 
 
 In the future, you should also create your own repo for a project and work on that. No need to fork the GA project repo.
 
-Make sure to take a look at the inline code comments I made in this pull request.
+Make sure to take a look at the inline code comments I made in this [pull request](https://github.com/arsm800/project1/pull/1/files).
